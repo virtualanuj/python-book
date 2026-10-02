@@ -25,28 +25,26 @@ def guess_kind(value):
 # Step 1: return the first item in the list.
 # Example: first_item(["a", "b", "c"]) should give "a"
 def first_item(values):
-    return None
+    return values[0]
 
 
 # Step 2: return how many items are in the list.
 # Example: how_many(["a", "b", "c"]) should give 3
 def how_many(values):
-    return None
+    return len(values)
 
 
 # Step 3: return a NEW list with clean() applied to every item.
 # Example: clean_all(["  A.Example", "B.EXAMPLE "]) should give ["a.example", "b.example"]
 def clean_all(values):
-    result = []
-    # your loop goes here
+    result = [clean(value) for value in values]
     return result
 
 
 # Step 4: return a new list with only the items whose guess_kind() equals kind.
 # Example: only_kind(["198.51.100.7", "evil.example"], "ipv4-addr") should give ["198.51.100.7"]
 def only_kind(values, kind):
-    result = []
-    # your loop goes here
+    result = [value for value in values if guess_kind(value) == kind]
     return result
 
 
@@ -54,8 +52,7 @@ def only_kind(values, kind):
 # value only once.
 # Example: without_duplicates(["a", "b", "a", "c", "b"]) should give ["a", "b", "c"]
 def without_duplicates(values):
-    result = []
-    # your loop goes here
+    result = [value for i, value in enumerate(values) if value not in values[:i]]
     return result
 
 
