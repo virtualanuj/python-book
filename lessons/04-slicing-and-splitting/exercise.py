@@ -9,27 +9,28 @@ Run from the repo root:
 # with "[" and ends with "]".
 # Example: has_brackets("  [ipv4-addr:value = '198.51.100.7'] ") should give True
 def has_brackets(pattern):
-    return False
+    return pattern.strip().startswith("[") and pattern.strip().endswith("]")
 
 
 # Step 2: return the text between the brackets (remove outside spaces first).
 # Example: strip_brackets(" [abc] ") should give "abc"
 def strip_brackets(pattern):
-    return ""
+    return pattern.strip()[1:-1]
 
 
 # Step 3: split text at the FIRST sep, and return a tuple (before, after),
 # each with outside spaces removed. If sep isn't there, after is "".
 # Example: split_once("ipv4-addr:value = 'x'", "=") should give ("ipv4-addr:value", "'x'")
 def split_once(text, sep):
-    return ("", "")
+    before, _, after = text.partition(sep)
+    return (before.strip(), after.strip())
 
 
 # Step 4: return True if text is at least 2 characters long and starts AND
 # ends with a single quote '.
 # Example: is_quoted("'198.51.100.7'") should give True, is_quoted("198.51.100.7") False
 def is_quoted(text):
-    return False
+    return len(text) >= 2 and text.startswith("'") and text.endswith("'")
 
 
 # Step 5: return a tuple (object_type, prop, value), or None if the pattern is
@@ -37,8 +38,24 @@ def is_quoted(text):
 # Example: parse_pattern("[ipv4-addr:value = '198.51.100.7']")
 #          should give ("ipv4-addr", "value", "198.51.100.7")
 def parse_pattern(pattern):
-    return None
+    if not has_brackets(pattern):
+        return None
 
+    value = strip_brackets(pattern)
+    left, right = split_once(value, "=")
+
+    if not right or right == "''":
+        return None
+
+    if not is_quoted(right):    
+        return None
+
+    kind, prop = split_once(left, ":")
+
+    if not prop or not kind:
+        return None
+
+    return (kind, prop, right[1:-1])
 
 # ---------------------------------------------------------------------------
 # The checker. You don't need to read or change anything below this line.
