@@ -9,25 +9,27 @@ In each function, replace the line   return ""   with your own code.
 
 # Step 1: return the text "Welcome to ThreatDesk"
 def welcome():
-    return ""
+    return "Welcome to ThreatDesk"
 
 
 # Step 2: return "Indicator: " followed by the value.
 # Example: label("198.51.100.7") should give "Indicator: 198.51.100.7"
 def label(value):
-    return ""
+    return f"Indicator: {value}"
 
 
 # Step 3: return the kind, then a | character, then the value.
 # Example: make_key("ipv4-addr", "198.51.100.7") should give "ipv4-addr|198.51.100.7"
 def make_key(kind, value):
-    return ""
+    if not kind or not value:
+        raise ValueError("kind and value must be non-empty strings")
+    return f"{kind}|{value}"
 
 
 # Step 4: return the value with spaces removed from both ends, in lowercase.
 # Example: clean("  EVIL.Example ") should give "evil.example"
 def clean(value):
-    return ""
+    return value.strip().lower()
 
 
 # ---------------------------------------------------------------------------
