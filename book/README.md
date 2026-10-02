@@ -11,3 +11,4 @@ Target: CPython 3.14, managed with uv.
 2. [Making decisions](02-making-decisions.md)
 3. [Lists and loops](03-lists-and-loops.md)
 4. [Slicing and splitting text](04-slicing-and-splitting.md)
+5. [Dictionaries and sets](05-dicts-and-sets.md)
