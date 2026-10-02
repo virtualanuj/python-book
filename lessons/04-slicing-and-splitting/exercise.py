@@ -44,12 +44,9 @@ def parse_pattern(pattern):
     value = strip_brackets(pattern)
     left, right = split_once(value, "=")
 
-    if not right or right == "''":
+    if not is_quoted(right) or right == "''":
         return None
-
-    if not is_quoted(right):    
-        return None
-
+    
     kind, prop = split_once(left, ":")
 
     if not prop or not kind:
