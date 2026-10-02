@@ -10,3 +10,4 @@ Target: CPython 3.14, managed with uv.
 1. [First steps](01-first-steps.md)
 2. [Making decisions](02-making-decisions.md)
 3. [Lists and loops](03-lists-and-loops.md)
+4. [Slicing and splitting text](04-slicing-and-splitting.md)
