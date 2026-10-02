@@ -10,20 +10,20 @@ Fill in each function. Replace the line   return False   (or   return ""  ).
 # Step 1: return True if value starts with "http://" or "https://", otherwise False.
 # Example: is_url("https://login.bad.example") should give True
 def is_url(value):
-    return False
+    return value.startswith("http://") or value.startswith("https://")
 
 
 # Step 2: return True if value contains an "@" character.
 # Example: is_email("payroll@phish.example") should give True
 def is_email(value):
-    return False
+    return "@" in value
 
 
 # Step 3: return True if value has exactly 3 dots AND is only digits once
 # the dots are removed.
 # Example: is_ipv4("198.51.100.7") should give True, is_ipv4("evil.example") False
 def is_ipv4(value):
-    return False
+    return value.count(".") == 3 and value.replace(".", "").isdigit()
 
 
 # Step 4: return the kind of indicator as text, using if / elif / else:
@@ -33,7 +33,16 @@ def is_ipv4(value):
 #   anything else       -> "domain-name"
 # Use your functions from steps 1 to 3. Check for a URL first!
 def guess_kind(value):
-    return ""
+    if value is None or not isinstance(value, str):
+        raise ValueError("value must be a non-empty string")
+    if is_url(value):
+        return "url"
+    elif is_email(value):
+        return "email-addr"
+    elif is_ipv4(value):
+        return "ipv4-addr"
+    else:
+        return "domain-name"    
 
 
 # ---------------------------------------------------------------------------
