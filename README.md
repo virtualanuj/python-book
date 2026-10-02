@@ -11,16 +11,19 @@ python-book/
 ├── book/                the book, one chapter per lesson
 │   ├── README.md        table of contents
 │   ├── 01-first-steps.md
-│   └── 02-making-decisions.md
+│   ├── 02-making-decisions.md
+│   └── ...
 ├── lessons/             hands-on lessons; you edit the exercise files
 │   ├── 01-first-steps/
 │   │   ├── README.md    the micro lesson
 │   │   └── exercise.py  starter code with built-in checks
-│   └── 02-making-decisions/
+│   ├── 02-making-decisions/
+│   └── ...
 └── solutions/           reference solutions, kept apart so you don't peek
     ├── 01-first-steps/
     │   └── solution.py
-    └── 02-making-decisions/
+    ├── 02-making-decisions/
+    └── ...
 ```
 
 From lesson 7 onwards, the product code also lives in `threatdesk/` as a real package that grows lesson by lesson.
