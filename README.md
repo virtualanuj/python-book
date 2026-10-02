@@ -10,14 +10,17 @@ python-book/
 ├── OUTLINE.md           the full course plan (42 lessons, 10 modules)
 ├── book/                the book, one chapter per lesson
 │   ├── README.md        table of contents
-│   └── 01-first-steps.md
+│   ├── 01-first-steps.md
+│   └── 02-making-decisions.md
 ├── lessons/             hands-on lessons; you edit the exercise files
-│   └── 01-first-steps/
-│       ├── README.md    the micro lesson
-│       └── exercise.py  starter code with built-in checks
+│   ├── 01-first-steps/
+│   │   ├── README.md    the micro lesson
+│   │   └── exercise.py  starter code with built-in checks
+│   └── 02-making-decisions/
 └── solutions/           reference solutions, kept apart so you don't peek
-    └── 01-first-steps/
-        └── solution.py
+    ├── 01-first-steps/
+    │   └── solution.py
+    └── 02-making-decisions/
 ```
 
 From lesson 7 onwards, the product code also lives in `threatdesk/` as a real package that grows lesson by lesson.
@@ -44,7 +47,7 @@ cd python-book
 ## How to work through a lesson
 
 1. Read `lessons/NN-name/README.md`.
-2. Edit `lessons/NN-name/exercise.py` and run it: `uv run --python 3.14 lessons/01-first-steps/exercise.py`.
+2. Edit `lessons/NN-name/exercise.py` and run it: `uv run --python 3.14 lessons/NN-name/exercise.py`.
 3. When every check passes, compare with `solutions/NN-name/solution.py`.
 4. Read `book/NN-*.md` to consolidate what you learned.
 

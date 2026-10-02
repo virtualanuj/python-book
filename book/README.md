@@ -8,3 +8,4 @@ Target: CPython 3.14, managed with uv.
 
 ### Module 1: Python from zero
 1. [First steps](01-first-steps.md)
+2. [Making decisions](02-making-decisions.md)
