@@ -6,5 +6,5 @@ Target: CPython 3.14, managed with uv.
 
 ## Contents
 
-### Part 1: Language core
-1. [Strings, functions and f-strings](01-strings-functions.md)
+### Module 1: Python from zero
+1. [First steps](01-first-steps.md)

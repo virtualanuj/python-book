@@ -1,26 +1,26 @@
 # Practical Python: building a product step by step
 
-Micro lessons (15 to 30 minutes each) that take you from core Python to expert product development. Every lesson adds one real piece to the same product, **ThreatDesk**, and every lesson has a matching book chapter.
+Micro lessons (15 to 30 minutes each) that take you from your very first line of Python to expert product development. No prior Python experience needed. Every lesson adds one real piece to the same product, **ThreatDesk**, and every lesson has a matching book chapter.
 
 ## Repository layout
 
 ```
 python-book/
 ├── README.md            this file: setup and how to use the repo
-├── OUTLINE.md           the full course plan (40 lessons, 10 modules)
+├── OUTLINE.md           the full course plan (42 lessons, 10 modules)
 ├── book/                the book, one chapter per lesson
 │   ├── README.md        table of contents
-│   └── 01-strings-functions.md
+│   └── 01-first-steps.md
 ├── lessons/             hands-on lessons; you edit the exercise files
-│   └── 01-parse-pattern/
+│   └── 01-first-steps/
 │       ├── README.md    the micro lesson
 │       └── exercise.py  starter code with built-in checks
 └── solutions/           reference solutions, kept apart so you don't peek
-    └── 01-parse-pattern/
+    └── 01-first-steps/
         └── solution.py
 ```
 
-From lesson 5 onwards, the product code also lives in `threatdesk/` as a real package that grows lesson by lesson.
+From lesson 7 onwards, the product code also lives in `threatdesk/` as a real package that grows lesson by lesson.
 
 ## Python version: 3.14
 
@@ -44,7 +44,7 @@ cd python-book
 ## How to work through a lesson
 
 1. Read `lessons/NN-name/README.md`.
-2. Edit `lessons/NN-name/exercise.py` and run it: `uv run --python 3.14 lessons/01-parse-pattern/exercise.py`.
+2. Edit `lessons/NN-name/exercise.py` and run it: `uv run --python 3.14 lessons/01-first-steps/exercise.py`.
 3. When every check passes, compare with `solutions/NN-name/solution.py`.
 4. Read `book/NN-*.md` to consolidate what you learned.
 
