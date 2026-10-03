@@ -9,6 +9,7 @@ python-book/
 ├── README.md            this file: setup and how to use the repo
 ├── Lessons.md           every lesson with a one-line summary
 ├── OUTLINE.md           the full course plan (42 lessons, 10 modules)
+├── threatdesk/          the product: you create it in lesson 7 and grow it from there
 ├── book/                the book, one chapter per lesson
 │   ├── README.md        table of contents
 │   ├── 01-first-steps.md
@@ -27,7 +28,7 @@ python-book/
     └── ...
 ```
 
-From lesson 7 onwards, the product code also lives in `threatdesk/` as a real package that grows lesson by lesson.
+From lesson 7 onwards, the product code lives in `threatdesk/` as a real package that grows lesson by lesson.
 
 ## Python version: 3.14
 

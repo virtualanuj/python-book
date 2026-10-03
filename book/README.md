@@ -13,3 +13,4 @@ Target: CPython 3.14, managed with uv.
 4. [Slicing and splitting text](04-slicing-and-splitting.md)
 5. [Dictionaries and sets](05-dicts-and-sets.md)
 6. [Errors and exceptions](06-errors-and-exceptions.md)
+7. [Modules, packages and files](07-modules-and-packages.md)

@@ -11,8 +11,8 @@ Every lesson in the course, with one line on what it covers. ✅ = you've comple
 | 3 ✅ | [Lists and loops](lessons/03-lists-and-loops/README.md) | Lists, indexes, `for` loops and building new lists to clean and filter a whole feed. |
 | 4 ✅ | [Slicing and splitting](lessons/04-slicing-and-splitting/README.md) | Slicing, `split()`/`partition()`, tuples and `None` to read a STIX pattern. |
 | 5 ✅ | [Dictionaries and sets](lessons/05-dicts-and-sets/README.md) | Dicts for named records, counting, and sets for fast de-duplication in a mini ingest pipeline. |
-| 6 👉 | [Errors and exceptions](lessons/06-errors-and-exceptions/README.md) | Reading type hints, `try`/`except`, `raise`, and a custom `PatternError` that explains what went wrong. |
-| 7 | Files, modules and project layout | Splitting code into modules, imports, and turning ThreatDesk into a real `threatdesk` package with uv. |
+| 6 ✅ | [Errors and exceptions](lessons/06-errors-and-exceptions/README.md) | Reading type hints, `try`/`except`, `raise`, and a custom `PatternError` that explains what went wrong. |
+| 7 👉 | [Modules, packages and files](lessons/07-modules-and-packages/README.md) | Imports and the standard library, turning ThreatDesk into a real `threatdesk` package with uv, and reading a feed file. |
 
 ## Module 2: Modelling threat data
 
