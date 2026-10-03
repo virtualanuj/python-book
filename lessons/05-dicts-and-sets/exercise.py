@@ -29,35 +29,55 @@ def parse_pattern(pattern):
 #   {"type": "ipv4-addr", "property": "value", "value": "198.51.100.7",
 #    "key": "ipv4-addr|198.51.100.7"}
 def to_indicator(parsed):
-    return {}
+    type, prop, value = parsed
+    return {"type": type, "property": prop, "value": value, "key": f"{type}|{value}"}
 
 
 # Step 2: return the indicator's type and value with a space between them.
 # Example: describe({"type": "ipv4-addr", "value": "198.51.100.7", ...})
 #          should give "ipv4-addr 198.51.100.7"
 def describe(indicator):
-    return ""
+    return f"{indicator['type']} {indicator['value']}"
 
 
 # Step 3: return the values in their original order with repeats removed.
 # Use a set called seen for the "have I seen this?" check.
 # Example: unique_values(["a", "b", "a"]) should give ["a", "b"]
 def unique_values(values):
-    return []
+    seen = set()
+    result = []
+    for value in values:
+        if value not in seen:
+            seen.add(value)
+            result.append(value)
+    return result
 
 
 # Step 4: count how many indicators there are of each type.
 # Example: for two ipv4-addr and one domain-name indicators, should give
 #   {"ipv4-addr": 2, "domain-name": 1}
 def count_by_type(indicators):
-    return {}
+    counts = {}
+    for ind in indicators:
+        counts[ind["type"]] = counts.get(ind["type"], 0) + 1
+    return counts
 
 
 # Step 5: turn a list of raw STIX patterns into a list of indicator dicts.
 # Skip patterns that parse_pattern() can't read, and skip indicators whose
 # "key" you've already seen. Follow the 6-line plan in the lesson README.
 def ingest(patterns):
-    return []
+    seen_keys = set()
+    indicators = []
+    for pattern in patterns:
+        parsed = parse_pattern(pattern)
+        if parsed is None:
+            continue
+        indicator = to_indicator(parsed)
+        if indicator["key"] not in seen_keys:
+            seen_keys.add(indicator["key"])
+            indicators.append(indicator)
+    return indicators
 
 
 # ---------------------------------------------------------------------------
