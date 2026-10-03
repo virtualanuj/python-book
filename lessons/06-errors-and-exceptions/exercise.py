@@ -21,7 +21,10 @@ def to_indicator(parsed: tuple[str, str, str]) -> dict[str, str]:
 # Use try / except ValueError.
 # Example: to_number("443") should give 443, to_number("https") should give None
 def to_number(text: str) -> int | None:
-    return None
+    try:
+        return int(text)
+    except ValueError:
+        return None
 
 
 # Step 2: if the pattern (after removing outside spaces) starts with "[" and
@@ -29,8 +32,10 @@ def to_number(text: str) -> int | None:
 #     raise PatternError("missing [ ] brackets")
 # Example: require_brackets(" [abc] ") should give "abc"
 def require_brackets(pattern: str) -> str:
-    return ""
-
+    pattern = pattern.strip()
+    if not (pattern.startswith("[") and pattern.endswith("]")):
+        raise PatternError("missing [ ] brackets")
+    return pattern[1:-1]
 
 # Step 3: parse a STIX pattern into (object_type, prop, value), raising
 # PatternError with one of these exact messages when something is wrong:
@@ -41,12 +46,28 @@ def require_brackets(pattern: str) -> str:
 # Example: parse_pattern("[ipv4-addr:value = '198.51.100.7']")
 #          should give ("ipv4-addr", "value", "198.51.100.7")
 def parse_pattern(pattern: str) -> tuple[str, str, str]:
-    return ("", "", "")
+    patt = pattern.strip()
+    if not (patt.startswith("[") and patt.endswith("]")):
+        raise PatternError("missing [ ] brackets")
+    left, _, right = patt[1:-1].partition("=")
+    left, right = left.strip(), right.strip()
+    if not (len(right) >= 2 and right.startswith("'") and right.endswith("'")):
+        raise PatternError("value must be in single quotes")
+    object_type, _, prop = left.partition(":")
+    object_type, prop, value = object_type.strip(), prop.strip(), right[1:-1]
+    if object_type == "" or prop == "":
+        raise PatternError("expected type:property before =")
+    if value == "":
+        raise PatternError("value is empty")
+    return object_type, prop, value
 
 
 # Step 4: return parse_pattern(pattern), or None if it raises PatternError.
 def safe_parse(pattern: str) -> tuple[str, str, str] | None:
-    return None
+    try:
+        return parse_pattern(pattern)
+    except PatternError:
+        return None
 
 
 # Step 5: return a tuple (indicators, errors).
@@ -54,7 +75,19 @@ def safe_parse(pattern: str) -> tuple[str, str, str] | None:
 #               (use a seen set, as in lesson 5)
 #   errors:     one text per bad pattern, made with  f"{pattern!r}: {err}"
 def ingest(patterns: list[str]) -> tuple[list[dict[str, str]], list[str]]:
-    return [], []
+    indicators = []
+    errors = []
+    seen = set()
+    for pattern in patterns:
+        try:
+            parsed = parse_pattern(pattern)
+            indicator = to_indicator(parsed)
+            if indicator["key"] not in seen:
+                seen.add(indicator["key"])
+                indicators.append(indicator)
+        except PatternError as err:
+            errors.append(f"{pattern!r}: {err}")
+    return indicators, errors
 
 
 # ---------------------------------------------------------------------------
