@@ -56,6 +56,10 @@ cd python-book
 3. When every check passes, compare with `solutions/NN-name/solution.py`.
 4. Read `book/NN-*.md` to consolidate what you learned.
 
+## Report cards
+
+Ask Claude for a report card whenever you like ("give me a report card", or "report card for lessons 5 to 7"). The `report-card` subagent in [.claude/agents/report-card.md](.claude/agents/report-card.md) reviews your finished exercises and writes a progress report, a scorecard and feedback for each lesson to `reports/report-card-YYYY-MM-DD.md`.
+
 ## The product: ThreatDesk
 
 A threat intelligence service. It ingests indicators of compromise from **TAXII 2.1** feeds (as **STIX 2.1** objects), normalises and de-duplicates them, enriches them, and serves them through a CLI (`threatdesk search 198.51.100.7`), a FastAPI web API and a dashboard.
