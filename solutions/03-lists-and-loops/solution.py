@@ -1,11 +1,11 @@
 """Lesson 3 solution. Have a go at the exercise first!"""
 
 
-def clean(value):
+def clean(value: str) -> str:
     return value.strip().lower()
 
 
-def guess_kind(value):
+def guess_kind(value: str) -> str:
     if value.startswith("http://") or value.startswith("https://"):
         return "url"
     elif "@" in value:
@@ -16,22 +16,22 @@ def guess_kind(value):
         return "domain-name"
 
 
-def first_item(values):
+def first_item(values: list[str]) -> str:
     return values[0]
 
 
-def how_many(values):
+def how_many(values: list[str]) -> int:
     return len(values)
 
 
-def clean_all(values):
+def clean_all(values: list[str]) -> list[str]:
     result = []
     for value in values:
         result.append(clean(value))
     return result
 
 
-def only_kind(values, kind):
+def only_kind(values: list[str], kind: str) -> list[str]:
     result = []
     for value in values:
         if guess_kind(value) == kind:
@@ -39,7 +39,7 @@ def only_kind(values, kind):
     return result
 
 
-def without_duplicates(values):
+def without_duplicates(values: list[str]) -> list[str]:
     result = []
     for value in values:
         if value not in result:

@@ -1,19 +1,19 @@
 """Lesson 2 solution. Have a go at the exercise first!"""
 
 
-def is_url(value):
+def is_url(value: str) -> bool:
     return value.startswith("http://") or value.startswith("https://")
 
 
-def is_email(value):
+def is_email(value: str) -> bool:
     return "@" in value
 
 
-def is_ipv4(value):
+def is_ipv4(value: str) -> bool:
     return value.count(".") == 3 and value.replace(".", "").isdigit()
 
 
-def guess_kind(value):
+def guess_kind(value: str) -> str:
     if is_url(value):
         return "url"
     elif is_email(value):

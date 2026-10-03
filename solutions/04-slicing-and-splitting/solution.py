@@ -1,25 +1,25 @@
 """Lesson 4 solution. Have a go at the exercise first!"""
 
 
-def has_brackets(pattern):
+def has_brackets(pattern: str) -> bool:
     p = pattern.strip()
     return p.startswith("[") and p.endswith("]")
 
 
-def strip_brackets(pattern):
+def strip_brackets(pattern: str) -> str:
     return pattern.strip()[1:-1]
 
 
-def split_once(text, sep):
+def split_once(text: str, sep: str) -> tuple[str, str]:
     before, found, after = text.partition(sep)
     return before.strip(), after.strip()
 
 
-def is_quoted(text):
+def is_quoted(text: str) -> bool:
     return len(text) >= 2 and text.startswith("'") and text.endswith("'")
 
 
-def parse_pattern(pattern):
+def parse_pattern(pattern: str) -> tuple[str, str, str] | None:
     if not has_brackets(pattern):
         return None
 

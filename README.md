@@ -7,6 +7,7 @@ Micro lessons (15 to 30 minutes each) that take you from your very first line of
 ```
 python-book/
 ├── README.md            this file: setup and how to use the repo
+├── Lessons.md           every lesson with a one-line summary
 ├── OUTLINE.md           the full course plan (42 lessons, 10 modules)
 ├── book/                the book, one chapter per lesson
 │   ├── README.md        table of contents
@@ -49,7 +50,7 @@ cd python-book
 
 ## How to work through a lesson
 
-1. Read `lessons/NN-name/README.md`.
+1. Pick the next lesson from [Lessons.md](Lessons.md) and read its `lessons/NN-name/README.md`.
 2. Edit `lessons/NN-name/exercise.py` and run it: `uv run --python 3.14 lessons/NN-name/exercise.py`.
 3. When every check passes, compare with `solutions/NN-name/solution.py`.
 4. Read `book/NN-*.md` to consolidate what you learned.

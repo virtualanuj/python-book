@@ -1,19 +1,19 @@
 """Lesson 1 solution. Have a go at the exercise first!"""
 
 
-def welcome():
+def welcome() -> str:
     return "Welcome to ThreatDesk"
 
 
-def label(value):
+def label(value: str) -> str:
     return f"Indicator: {value}"
 
 
-def make_key(kind, value):
+def make_key(kind: str, value: str) -> str:
     return f"{kind}|{value}"
 
 
-def clean(value):
+def clean(value: str) -> str:
     return value.strip().lower()
 
 

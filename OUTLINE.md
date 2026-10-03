@@ -10,13 +10,13 @@ Each line is one micro lesson. Module 1 assumes no Python experience at all; lat
 3. Lists and loops. Product step: clean a whole list of indicators at once.
 4. Slicing and splitting text. Product step: `parse_pattern()` reads a STIX pattern like `[ipv4-addr:value = '198.51.100.7']`.
 5. Dictionaries and sets. Product step: de-duplicate indicators, count them by type, apply an allow-list.
-6. Errors and exceptions. Product step: `PatternError` with a helpful message instead of a silent failure.
-7. Files, modules and project layout with uv. Product step: a real `threatdesk` package (`src/` layout) and type hints from here on.
+6. Errors and exceptions, plus reading type hints. Product step: `PatternError` with a helpful message instead of a silent failure.
+7. Files, modules and project layout with uv. Product step: a real `threatdesk` package (`src/` layout).
 
 ## Module 2: Modelling threat data
 8. Dataclasses. Product step: `Indicator`, `Feed` and `Sighting` classes replace dicts.
 9. Enums and `datetime`. Product step: TLP markings as an enum, `valid_from`/`valid_until` and indicator expiry.
-10. Type hints and mypy/pyright. Product step: fully typed core.
+10. Checking type hints with mypy/pyright. Product step: a fully typed, type-checked core.
 11. Protocols and composition. Product step: a `FeedSource` interface (TAXII, CSV, plain-text blocklists).
 12. Iterators and generators. Product step: stream large STIX bundles without loading them into memory.
 

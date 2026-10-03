@@ -1,7 +1,7 @@
 """Lesson 5 solution. Have a go at the exercise first!"""
 
 
-def parse_pattern(pattern):
+def parse_pattern(pattern: str) -> tuple[str, str, str] | None:
     """Return (object_type, prop, value) for a simple STIX pattern, or None."""
     p = pattern.strip()
     if not (p.startswith("[") and p.endswith("]")):
@@ -17,7 +17,7 @@ def parse_pattern(pattern):
     return object_type, prop, value
 
 
-def to_indicator(parsed):
+def to_indicator(parsed: tuple[str, str, str]) -> dict[str, str]:
     object_type, prop, value = parsed
     return {
         "type": object_type,
@@ -27,12 +27,12 @@ def to_indicator(parsed):
     }
 
 
-def describe(indicator):
+def describe(indicator: dict[str, str]) -> str:
     return f"{indicator['type']} {indicator['value']}"
 
 
-def unique_values(values):
-    seen = set()
+def unique_values(values: list[str]) -> list[str]:
+    seen: set[str] = set()
     result = []
     for value in values:
         if value not in seen:
@@ -41,15 +41,15 @@ def unique_values(values):
     return result
 
 
-def count_by_type(indicators):
-    counts = {}
+def count_by_type(indicators: list[dict[str, str]]) -> dict[str, int]:
+    counts: dict[str, int] = {}
     for ind in indicators:
         counts[ind["type"]] = counts.get(ind["type"], 0) + 1
     return counts
 
 
-def ingest(patterns):
-    seen = set()
+def ingest(patterns: list[str]) -> list[dict[str, str]]:
+    seen: set[str] = set()
     result = []
     for pattern in patterns:
         parsed = parse_pattern(pattern)
@@ -63,7 +63,9 @@ def ingest(patterns):
     return result
 
 
-def remove_allowed(indicators, allow_list):
+def remove_allowed(
+    indicators: list[dict[str, str]], allow_list: list[str]
+) -> list[dict[str, str]]:
     """Stretch goal: drop indicators whose value is on the allow-list."""
     allowed = set(allow_list)
     return [ind for ind in indicators if ind["value"] not in allowed]
