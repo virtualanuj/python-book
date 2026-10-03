@@ -1,6 +1,6 @@
 # Report card: Lessons 1 to 6
 
-*For Anuj, 3 October 2026*
+*For Anuj, last updated 3 October 2026*
 
 ## Progress report
 

@@ -58,7 +58,7 @@ cd python-book
 
 ## Report cards
 
-Ask Claude for a report card whenever you like ("give me a report card", or "report card for lessons 5 to 7"). The `report-card` subagent in [.claude/agents/report-card.md](.claude/agents/report-card.md) reviews your finished exercises and writes a progress report, a scorecard and feedback for each lesson to `reports/report-card-YYYY-MM-DD.md`.
+Your report card lives in [progress/report-card.md](progress/report-card.md): a progress report, a scorecard and feedback for each lesson you've finished. Claude updates it each time you complete a lesson, and you can ask for a fresh one at any time ("update my report card"). The reviewer is the `report-card` subagent in [.claude/agents/report-card.md](.claude/agents/report-card.md).
 
 ## The product: ThreatDesk
 

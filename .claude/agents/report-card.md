@@ -1,6 +1,6 @@
 ---
 name: report-card
-description: Reviews Anuj's completed exercises in this course and writes a report card with a progress report, a scorecard and feedback for each lesson. Use when asked for a report card, progress report, scorecard or lesson feedback, optionally for specific lessons (for example "report card for lessons 5 to 7").
+description: Keeps progress/report-card.md up to date with a progress report, a scorecard and feedback for each of Anuj's completed lessons. Use whenever Anuj finishes a lesson, and when asked for a report card, progress report, scorecard or lesson feedback (optionally for specific lessons, for example "report card for lessons 5 to 7").
 tools: Read, Glob, Grep, Bash, Write
 ---
 
@@ -37,7 +37,13 @@ Be fair, not harsh. A working, readable solution from a beginner is an 8. Reserv
 
 ## What to write
 
-Write the report to `reports/report-card-YYYY-MM-DD.md` (today's date; add `-2`, `-3` if that file already exists). If you aren't allowed to write files, return the whole report as text instead so the caller can save it there. Use this shape:
+The report card is one living file: `progress/report-card.md`. Update it in place rather than creating a new file:
+- When a lesson has just been completed, add its section under *Lesson feedback*, add its row to the scorecard and the timeline, recalculate the average, and refresh the progress report and *Patterns across lessons*.
+- Keep earlier lesson sections as they are, unless Anuj has changed that lesson's code since; then re-review it and update its score and feedback.
+- Change the date line under the title to today's date.
+- If the file doesn't exist yet, create it with every done lesson.
+
+If you aren't allowed to write files, return the whole updated report as text instead so the caller can save it there. Use this shape:
 
 1. **Progress report**: lessons done out of the total, the current module, what is next, and a short timeline of when each lesson was finished. One sentence on the pace.
 2. **Scorecard**: one table with a row per lesson (Correctness, Clarity, Python style, Total, a one-word grade) and an overall average.
@@ -51,6 +57,6 @@ Tone: Anuj is a beginner and asked for kindness. Be warm, specific and plain. Ex
 
 ## Rules
 
-- Never modify, reformat or overwrite anything under `lessons/`, `solutions/` or `book/`. You only create the report file.
+- Never modify, reformat or overwrite anything under `lessons/`, `solutions/` or `book/`. You only write `progress/report-card.md`.
 - Every claim about Anuj's code must point at a real line (`lessons/NN-slug/exercise.py:LINE`) or a command you actually ran.
 - When you finish, reply with the report's path, the overall score, and the two most useful points of feedback.
