@@ -22,12 +22,7 @@ def to_indicator(parsed: tuple[str, str, str]) -> dict[str, str]:
 | `X \| None` | an `X`, or `None` |
 | `-> None` | the function returns nothing useful |
 
-Variables can be hinted too. This is mostly useful for empty containers, where a tool can't guess what will go inside:
-
-```python
-seen: set[str] = set()
-counts: dict[str, int] = {}
-```
+In this course, hints go on function **signatures** only (parameters and return values), not on variables inside functions. Tools work out a local variable's type from how it's used, and the signature is where hints help readers most.
 
 ### What hints do (and don't do)
 
@@ -159,9 +154,9 @@ def safe_parse(pattern: str) -> tuple[str, str, str] | None:
 
 
 def ingest(patterns: list[str]) -> tuple[list[dict[str, str]], list[str]]:
-    seen: set[str] = set()
-    indicators: list[dict[str, str]] = []
-    errors: list[str] = []
+    seen = set()
+    indicators = []
+    errors = []
     for pattern in patterns:
         try:
             parsed = parse_pattern(pattern)

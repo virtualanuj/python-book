@@ -61,9 +61,9 @@ def to_indicator(parsed: tuple[str, str, str]) -> dict[str, str]:
 
 
 def ingest(patterns: list[str]) -> tuple[list[dict[str, str]], list[str]]:
-    seen: set[str] = set()
-    indicators: list[dict[str, str]] = []
-    errors: list[str] = []
+    seen = set()
+    indicators = []
+    errors = []
     for pattern in patterns:
         try:
             parsed = parse_pattern(pattern)

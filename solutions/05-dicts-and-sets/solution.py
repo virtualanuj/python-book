@@ -32,7 +32,7 @@ def describe(indicator: dict[str, str]) -> str:
 
 
 def unique_values(values: list[str]) -> list[str]:
-    seen: set[str] = set()
+    seen = set()
     result = []
     for value in values:
         if value not in seen:
@@ -42,14 +42,14 @@ def unique_values(values: list[str]) -> list[str]:
 
 
 def count_by_type(indicators: list[dict[str, str]]) -> dict[str, int]:
-    counts: dict[str, int] = {}
+    counts = {}
     for ind in indicators:
         counts[ind["type"]] = counts.get(ind["type"], 0) + 1
     return counts
 
 
 def ingest(patterns: list[str]) -> list[dict[str, str]]:
-    seen: set[str] = set()
+    seen = set()
     result = []
     for pattern in patterns:
         parsed = parse_pattern(pattern)
